@@ -10,15 +10,11 @@ def main():
     # Configurar la API KEY
     openai.api_key = config.api_key
     
-    # Saludo inicial del programa
-    print("[bold green]TerminalGPT [DAVIBERN][/bold green]")
-    
-    # Mostrar ayuda inicial
-    table = Table("Comando", "Descripción")
-    table.add_row("exit", "Salir de la aplicación")
-    table.add_row("new", "Crear una nueva conversación")
+    # Bienvenida
+    print(__welcome())
 
-    print(table)
+    # Mostrar ayuda 
+    print(__help())
 
     # Contexto inicial del asistente
     context = {"role": "system", "content": "Eres un asistente muy útil."}
@@ -56,6 +52,17 @@ def main():
         else:
             # No se ha recibido ninguna respuesta de la API
             print("No se ha recibido ninguna respuesta.")
+
+
+def __welcome() -> str:
+    return "[bold green]Bienvenido a la Terminal de ChatGTP[/bold green]"
+
+
+def __help() -> Table:
+    table = Table("Comando", "Descripción")
+    table.add_row("exit", "Salir de la aplicación")
+    table.add_row("new", "Crear una nueva conversación")
+    return table
 
 
 def __prompt() -> str:
