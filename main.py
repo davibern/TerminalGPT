@@ -45,13 +45,17 @@ def main():
         response = openai.ChatCompletion.create(model = "gpt-3.5-turbo",
                                                 messages = messages)
         
-        response_content = response.choices[0].message.content
-        
-        # Añado a los mensajes la respuesta de la IA para mantener el contexto y el diálogo
-        messages.append({"role": "assistant", "content": response_content})
-
-        # Imprimo el resultado por salida estándar
-        print(f"➡️ [green]{response_content}[/green]")
+        # Verificar si recibo respuesta de la API
+        if response.choices:
+            # Se ha recibido respuesta de la API
+            response_content = response.choices[0].message.content
+            # Añado a los mensajes la respuesta de la IA para mantener el contexto y el diálogo
+            messages.append({"role": "assistant", "content": response_content})
+            # Imprimo el resultado por salida estándar
+            print(f"➡️ [green]{response_content}[/green]")
+        else:
+            # No se ha recibido ninguna respuesta de la API
+            print("No se ha recibido ninguna respuesta.")
 
 
 def __prompt() -> str:
