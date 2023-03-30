@@ -10,7 +10,9 @@ Programa que se ejecuta en la terminal del sistema y que conecta con **OpenAI** 
 
 ## Referencias
 
-El programa ha sido inspirado por Brais Moure https://gist.github.com/mouredev/58abfbcef017efaf3852e8821564c011
+El programa ha sido inspirado por Brais Moure, aquí tienes el código original: https://gist.github.com/mouredev/58abfbcef017efaf3852e8821564c011
+
+También puedes echarle un vistazo a su vídeo explicativo en [Youtube](https://youtu.be/b8COygWdvmw).
 
 ## Documentación
 
