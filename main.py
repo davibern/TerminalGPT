@@ -29,9 +29,14 @@ def main():
         # Obtengo la pregunta del usuario
         content = __prompt()
         
+        # Si se indica nuevo se reinicia el contexto y el diálogo
         if  content == "new":
             messages = [context]
             content = __prompt()
+            
+        # Mensaje de espera mientras se obtiene respuesta
+        waiting = typer.style("⌛ Obteniendo respuesta...", fg = typer.colors.BRIGHT_BLACK, bg = typer.colors.BLACK)
+        typer.echo(waiting)
 
         # Añado a los mensajes la pregunta del usuario
         messages.append({"role": "user", "content": content})
